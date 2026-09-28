@@ -1,1 +1,9 @@
-# https://docs.github.com/en/repositories/managing-your-repositorys-settings-and-features/customizing-your-repository/about-citation-files
+@misc{synovic2026empiricalinvestigationpretraineddeep,
+      title={An Empirical Investigation of Pre-Trained Deep Learning Model Reuse in the Scientific Process},
+      author={Nicholas M. Synovic and Karolina Ryzka and Alessandra V. Vellucci Solari and Kenny Lyons and James C. Davis and George K. Thiruvathukal},
+      year={2026},
+      eprint={2603.13584},
+      archivePrefix={arXiv},
+      primaryClass={cs.SE},
+      url={https://arxiv.org/abs/2603.13584},
+}
