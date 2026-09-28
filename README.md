@@ -8,7 +8,7 @@ _A CLI for studying deep learning and pre-trained model reuse in natural science
 [![License](docs/license_badge.svg)](LICENSE)
 ![Python](docs/python_badge.svg)
 
-[About](#about) • [Requirements](#requirements) • [Install](#install) • [Run The CLI](#run-the-cli) • [Results](#results) • [Data](#data-and-reproducibility) • [Contributing](#contributing)
+[About](#about) • [Requirements](#requirements) • [Install](#install) • [Run The CLI](#run-the-cli) • [Results](#results) • [Data](#data-and-reproducibility) • [Contributing](#contributing) • [Citation](#citation)
 
 <img src="docs/hero.png" alt="AIUS workflow: search query generation, OpenAlex paper collection, automated LLM analysis, and manual PTM reuse identification" width="720px">
 
@@ -117,3 +117,57 @@ Please keep changes aligned with the existing CLI runner flow and avoid committi
 ## License
 
 Licensed under the [GNU Affero General Public License v3.0](LICENSE).
+
+## Citation
+
+To cite this work, please use one of the following BibTex citations:
+
+**arXiv Preprint**
+
+```bibtex
+@misc{synovic2026empiricalinvestigationpretraineddeep,
+      title={An Empirical Investigation of Pre-Trained Deep Learning Model Reuse in the Scientific Process},
+      author={Nicholas M. Synovic and Karolina Ryzka and Alessandra V. Vellucci Solari and Kenny Lyons and James C. Davis and George K. Thiruvathukal},
+      year={2026},
+      eprint={2603.13584},
+      archivePrefix={arXiv},
+      primaryClass={cs.SE},
+      url={https://arxiv.org/abs/2603.13584},
+}
+```
+
+**Zenodo Data**
+
+```bibtex
+@software{synovic_2026_21874098,
+  author       = {Synovic, Nicholas and
+                  Ryzka, Karolina and
+                  Vellucci Solari, Alessandra Valentina and
+                  Lyons, Kenny and
+                  Davis, James C. and
+                  Thiruvathukal, George K.},
+  title        = {An Empirical Investigation of Pre-Trained Deep
+                   Learning Model Reuse in the Scientific Process
+                   Artifact
+                  },
+  month        = aug,
+  year         = 2026,
+  publisher    = {Zenodo},
+  doi          = {10.5281/zenodo.21874098},
+  url          = {https://doi.org/10.5281/zenodo.21874098},
+}
+```
+
+
+**FigShare Presentation**
+
+```bibtex
+@article{Synovic2026,
+author = "Nicholas Synovic and Karolina Ryzka and Alessandra Vellucci Solari and Kenny Lyons and James C. Davis and George K. Thiruvathukal",
+title = "{An Empirical Investigation of Pre-Trained Deep Learning Model Reuse in the Scientific Process}",
+year = "2026",
+month = "9",
+url = "https://figshare.com/articles/presentation/An_Empirical_Investigation_of_Pre-Trained_Deep_Learning_Model_Reuse_in_the_Scientific_Process/34018209",
+doi = "10.6084/m9.figshare.34018209.v1"
+}
+```
