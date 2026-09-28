@@ -13,12 +13,18 @@ not fix, lint, or import from it.
   behavior follows `ruff.toml`.
 - There is no CI (`.github/` does not exist). Pre-commit is the only gate.
 - Work happens on the `dev` branch; `main` is the published branch.
+- First-time setup: `make create-dev` (installs pre-commit hooks, then
+  `uv sync` into `.venv`).
 
 ## The `aius` Console Script Is Not Editable
 
 `make build` installs a *tarball* into `.venv`, so `.venv/bin/aius` runs the
 snapshot in `site-packages/aius/`, **not** your working tree. Editing `aius/**`
 has no effect on the `aius` command until you re-run `make build`.
+
+`make build` also rewrites the `version` in `pyproject.toml` to the latest git
+tag (lexicographic `sort | tail -n 1`) and leaves the working tree dirty.
+Don't commit that hunk unless you are releasing.
 
 To exercise working-tree code directly:
 
@@ -29,8 +35,9 @@ To exercise working-tree code directly:
 ## Lint / Format Reality
 
 - `ruff format` is clean repo-wide. Keep it that way.
-- `ruff check` reports ~1500 pre-existing errors (mostly `D*`, `CPY001`, `ANN*`,
-  `G004`). The `ruff-check` pre-commit hook fails on almost any file you touch.
+- `ruff check` reports ~1500 pre-existing errors (dominated by `D103`/`D100`
+  docstrings, `T201` print, `CPY001` copyright, then `E501`, `ICN001`,
+  `N806`). The `ruff-check` pre-commit hook fails on almost any file you touch.
   This is the baseline — do not attempt a repo-wide cleanup, and do not treat a
   failing `ruff-check` on an untouched rule as your regression.
 - `ruff.toml` sets `fixable = []`, so `ruff check --fix` is a deliberate no-op.
@@ -75,6 +82,11 @@ parsed key on `.`. Consequences:
 - `runner_factory` reads those exact dotted keys, so adding an argument means
   editing `aius/factory.py` too.
 
+Every subcommand takes `--db` with a default of `aius.sqlite3` resolved against
+the **current working directory** (`aius/db.py` `DEFAULT_DATABASE_PATH`), not
+the repo root as `README.md` implies — pass `--db` explicitly or run from a
+known cwd.
+
 Every invocation writes `aius_<unix_timestamp>.log` into the **current working
 directory** (gitignored). Expect stray log files after running anything.
 
@@ -82,6 +94,10 @@ directory** (gitignored). Expect stray log files after running anything.
 
 Order: `init` -> `search` -> `openalex` -> `jats` -> `pandoc` -> `analyze`.
 
+- Runtime prerequisites: `openalex` requires `--email`; `pandoc` needs a pandoc
+  server (default `http://localhost:3030`); `jats` reads `allofplos.zip` from
+  the cwd; backends other than `ollama` need `--auth-key` (metis, openai,
+  openai-batch, sophia).
 - **`init` is not idempotent.** All writes use `if_exists="append"`, so a second
   `init` against the same database fails with
   `UNIQUE constraint failed: _llm_prompts._id`. Always start from a fresh DB.
@@ -115,8 +131,13 @@ Order: `init` -> `search` -> `openalex` -> `jats` -> `pandoc` -> `analyze`.
 
 ## Analysis Scripts
 
-- Databases are gitignored (`*.db`, `data/*`) and distributed via Zenodo, not
-  the repo. Nothing under `data/` is reproducible from a clean checkout.
+- Databases are gitignored (`*.db`, `*.sqlite*`, `data/*`) and distributed via
+  Zenodo, not the repo. Nothing under `data/` is reproducible from a clean
+  checkout.
+- The `.gitignore` is aggressive: `*.json`, `*.yaml`, `*.csv`, `*.txt`,
+  `*.xml`, `*.jsonl`, `*.png`, `*.pdf`, `*.parquet`, `*.log`, `*.zip` are all
+  ignored. A new file with one of these extensions will not appear in
+  `git status` — use `git check-ignore -v` / `git add -f` when it matters.
 - `figures/*.py` are Click CLIs whose `--db` default is a relative
   `../data/aius*.db`, so **run them from inside `figures/`** or pass `--db`.
 - `statistics/` is inconsistent: only 5 of 17 scripts use Click. The rest
