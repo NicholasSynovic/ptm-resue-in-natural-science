@@ -1,9 +1,17 @@
-@misc{synovic2026empiricalinvestigationpretraineddeep,
-      title={An Empirical Investigation of Pre-Trained Deep Learning Model Reuse in the Scientific Process},
-      author={Nicholas M. Synovic and Karolina Ryzka and Alessandra V. Vellucci Solari and Kenny Lyons and James C. Davis and George K. Thiruvathukal},
-      year={2026},
-      eprint={2603.13584},
-      archivePrefix={arXiv},
-      primaryClass={cs.SE},
-      url={https://arxiv.org/abs/2603.13584},
-}
+cff-version: 1.2.0
+message: "If you use this work, please cite it as below."
+authors:
+  - family-names: "Synovic"
+    given-names: "Nicholas M."
+  - family-names: "Ryzka"
+    given-names: "Karolina"
+  - family-names: "Vellucci Solari"
+    given-names: "Alessandra V."
+  - family-names: "Lyons"
+    given-names: "Kenny"
+  - family-names: "Davis"
+    given-names: "James C."
+  - family-names: "Thiruvathukal"
+    given-names: "George K."
+title: "An Empirical Investigation of Pre-Trained Deep Learning Model Reuse in the Scientific Process"
+url: "https://arxiv.org/abs/2603.13584"
