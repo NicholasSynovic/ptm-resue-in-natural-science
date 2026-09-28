@@ -186,3 +186,4 @@ data/*
 !data/all_of_plos
 *.xml
 *.jsonl
+!docs/hero.png
