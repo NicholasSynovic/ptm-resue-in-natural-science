@@ -27,6 +27,15 @@ What this repository contains:
 - Analysis, plotting, and historical scripts under `scripts/`, `figures/`, and `statistics/`.
 - The code used to reproduce the study workflow; release data is distributed separately through Zenodo.
 
+<details>
+<summary>Presentation</summary>
+
+IEEE eScience 2026 short paper presentation for this work:
+
+<iframe width="560" height="315" src="https://www.youtube.com/embed/pD_0LaN38IA" title="IEEE eScience 2026 short paper presentation of this work" allowfullscreen></iframe>
+
+</details>
+
 ## Requirements
 
 - Python 3.13
