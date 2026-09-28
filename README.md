@@ -28,11 +28,9 @@ What this repository contains:
 - The code used to reproduce the study workflow; release data is distributed separately through Zenodo.
 
 <details>
-<summary>Presentation</summary>
+<summary>IEEE eScience 2026 Short Paper Presentationresentation</summary>
 
-IEEE eScience 2026 short paper presentation for this work:
-
-<iframe width="560" height="315" src="https://www.youtube.com/embed/pD_0LaN38IA" title="IEEE eScience 2026 short paper presentation of this work" allowfullscreen></iframe>
+[![YouTube Video Link](https://img.youtube.com/vi/pD_0LaN38IA/0.jpg)](https://www.youtube.com/watch?v=pD_0LaN38IA)
 
 </details>
 
